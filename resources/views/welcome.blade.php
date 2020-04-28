@@ -14,23 +14,27 @@
 </head>
 <body>
 
-
 <div class="container mt-4">
-    @include('sections.nav')
-    <div class="row mt-4 align-items-center">
-        <div class="col-lg-3">
-            <button class="btn btn-primary w-100" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">Shop by Category</button>
-            <div class="collapse dropmenu" id="collapseExample">
-                <div class="card card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+    <header>
+        @include('sections.nav')
+        <div class="row mt-4 justify-content-lg-center">
+            <div class="col-lg-3">
+                <button class="btn btn-primary w-100" data-toggle="collapse" data-target="#collapseExample"
+                        aria-expanded="false" aria-controls="collapseExample">Shop by Category
+                </button>
+                <div class="collapse dropmenu" id="collapseExample">
+                    <div class="card card-body">
+                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
+                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
+                        proident.
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-7">
-            <form>
-                <div class="row">
-                <div class="input-group col-lg-9">
-                    <div class="input-group-prepend">
+            <div class="col-lg-7 mt-2 mt-lg-0">
+                <form>
+                    <div class="row">
+                        <div class="input-group col-lg-9 col-12">
+                            <div class="input-group-prepend">
                         <span class="input-group-prepend">
                              <select class="custom-select">
                                         <option selected>All categories</option>
@@ -39,19 +43,69 @@
                                         <option value="3">Three</option>
                              </select>
                         </span>
+                            </div>
+                            <input type="text" class="form-control"
+                                   aria-describedby="inputGroupPrepend" required placeholder="Search Products. . .">
+                        </div>
+                        <div class="col-lg-3 col-12 mt-2 mt-lg-0">
+                            <div class="btn btn-outline-primary w-100">Search</div>
+                        </div>
                     </div>
-                    <input type="text" class="form-control"
-                           aria-describedby="inputGroupPrepend" required placeholder="Search Products. . .">
-                </div>
-                <div class="btn btn-outline-primary col-lg-3">Search</div>
-                </div>
-            </form>
+                </form>
+            </div>
+
+            <div class="col-lg-2 mt-2 mt-lg-0 welcome">
+                <div><img width="30px" src="{{ asset('img/icons/hi.svg') }}"> Welcome Guest!</div>
+            </div>
+        </div>
+    </header>
+    <!-- End of header  -->
+
+    <div>
+        @yield('content')
+    </div>
+
+
+    <footer>
+        <div class="row bg-danger mt-2">
+            <div class="col"><img src="{{ asset("img/logo.png") }}"></div>
+            <div class="col"></div>
+            <div class="col"></div>
         </div>
 
-        <div class="col-lg-2">
-                <div><img width="30px" src="{{ asset('img/icons/hi.svg') }}"> Welcome Guest!</div>
+        <div class="row mt-5 p-2">
+            <div class="col"><h5>Get to Know Us</h5>
+                <ul class="">
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                </ul>
+
+            </div>
+            <div class="col"><h5>Connect With US</h5>
+                <ul class="">
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                </ul>
+            </div>
+            <div class="col"><h5>Earning with Us</h5>
+                <ul class="">
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                </ul>
+            </div>
+            <div class="col"><h5>Let Us Help You</h5>
+                <ul class="">
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum.</li>
+                    <li>Lorem ipsum dolor.</li>
+                </ul>
+            </div>
         </div>
-    </div>
+
+    </footer>
 </div>
 
 

@@ -34,11 +34,11 @@
             </div>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#"><img height="28px" src="{{ asset("img/icons/wish.svg") }}"><span class="badge badge-pill badge-info">9</span></a>
+            <a class="nav-link" href="#"><img height="28px" src="{{ asset("img/icons/wish.svg") }}"><span class="badge badge-pill badge-danger">0</span></a>
         </li>
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <img height="28px" src="{{ asset("img/icons/cart.svg") }}"><span class="badge badge-pill badge-danger">9</span>
+                <img height="28px" src="{{ asset("img/icons/cart.svg") }}"><span class="badge badge-pill badge-danger">0</span>
             </a>
             <div class="dropdown-menu" style="margin-left: -40px;" aria-labelledby="navbarDropdownMenuLink">
                 <a class="dropdown-item" href="#">Action</a>

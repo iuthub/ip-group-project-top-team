@@ -25,6 +25,9 @@ body{
 }
 
 @media (max-width: 992px) {
+    .welcome{
+        display: none;
+    }
     #navbarNavDropdown{
         order: 1;
     }
