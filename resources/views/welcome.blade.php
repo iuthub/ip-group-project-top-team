@@ -1,124 +1,114 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+@extends('layouts.default')
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
 
-    <title>Home</title>
-</head>
-<body>
+@section('title')
+    Home
+@endsection
 
-<div class="container mt-4">
-    <header>
-        @include('sections.nav')
-        <div class="row mt-4 justify-content-lg-center">
-            <div class="col-lg-3">
-                <button class="btn btn-primary w-100" data-toggle="collapse" data-target="#collapseExample"
-                        aria-expanded="false" aria-controls="collapseExample">Shop by Category
-                </button>
-                <div class="collapse dropmenu" id="collapseExample">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                        proident.
+@section('content')
+    <div class="row">
+        <div class="offset-lg-3 col-lg-9 mt-2">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('img/banners/banner-01.jpg') }}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('img/banners/banner-01.jpg') }}" class="d-block w-100" alt="...">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- End of carousel  -->
+
+    <div class="row mt-3">
+        <div class="col-lg-4">
+            <div class="card mb-3 p-2" style="max-width: 540px;">
+                <div class="row no-gutters text-center align-items-lg-center">
+                    <div class="col-md-2">
+                        <i class="fas fa-smile text-danger h1"></i>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title">100% Satisfaction</h5>
+                            <p class="card-text">If you are unable</p>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-7 mt-2 mt-lg-0">
-                <form>
-                    <div class="row">
-                        <div class="input-group col-lg-9 col-12">
-                            <div class="input-group-prepend">
-                        <span class="input-group-prepend">
-                             <select class="custom-select">
-                                        <option selected>All categories</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
-                             </select>
-                        </span>
-                            </div>
-                            <input type="text" class="form-control"
-                                   aria-describedby="inputGroupPrepend" required placeholder="Search Products. . .">
-                        </div>
-                        <div class="col-lg-3 col-12 mt-2 mt-lg-0">
-                            <div class="btn btn-outline-primary w-100">Search</div>
+        </div>
+        <div class="col-lg-4">
+            <div class="card mb-3 p-2" style="max-width: 540px;">
+                <div class="row no-gutters text-center align-items-lg-center">
+                    <div class="col-md-2">
+                        <i class="fas fa-heart text-danger h1"></i>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title">Save 20% when you</h5>
+                            <p class="card-text">Use credit card</p>
                         </div>
                     </div>
-                </form>
-            </div>
-
-            <div class="col-lg-2 mt-2 mt-lg-0 welcome">
-                <div><img width="30px" src="{{ asset('img/icons/hi.svg') }}"> Welcome Guest!</div>
+                </div>
             </div>
         </div>
-    </header>
-    <!-- End of header  -->
-
-    <div>
-        @yield('content')
+        <div class="col-lg-4">
+            <div class="card mb-3 p-2" style="max-width: 540px;">
+                <div class="row no-gutters text-center align-items-lg-center">
+                    <div class="col-md-2">
+                        <i class="fas fa-dolly-flatbed text-danger h1"></i>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title">Fast Free Shipment</h5>
+                            <p class="card-text">Load any computer’s</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+    <!-- End of header section -->
 
-    <footer>
-        <div class="row bg-danger mt-2">
-            <div class="col"><img src="{{ asset("img/logo.png") }}"></div>
-            <div class="col"></div>
-            <div class="col"></div>
-        </div>
-
-        <div class="row mt-5 p-2">
-            <div class="col"><h5>Get to Know Us</h5>
-                <ul class="">
-                    <li>Lorem ipsum.</li>
-                    <li>Lorem ipsum.</li>
-                    <li>Lorem ipsum dolor.</li>
-                </ul>
-
-            </div>
-            <div class="col"><h5>Connect With US</h5>
-                <ul class="">
-                    <li>Lorem ipsum.</li>
-                    <li>Lorem ipsum.</li>
-                    <li>Lorem ipsum dolor.</li>
-                </ul>
-            </div>
-            <div class="col"><h5>Earning with Us</h5>
-                <ul class="">
-                    <li>Lorem ipsum.</li>
-                    <li>Lorem ipsum.</li>
-                    <li>Lorem ipsum dolor.</li>
-                </ul>
-            </div>
-            <div class="col"><h5>Let Us Help You</h5>
-                <ul class="">
-                    <li>Lorem ipsum.</li>
-                    <li>Lorem ipsum.</li>
-                    <li>Lorem ipsum dolor.</li>
-                </ul>
+    <div class="row ">
+        <div class="col-lg-6 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-01.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                    <br>
+                    <p class="card-text">For New Customer Only</p>
+                </div>
             </div>
         </div>
+        <div class="col-lg-6 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-02.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                    <br>
+                    <p class="card-text">For New Customer Only</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    </footer>
-</div>
+    <h2 class="mt-4">Best Deals Ever</h2>
 
-
-<!-- Optional JavaScript -->
-<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-        crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-        crossorigin="anonymous"></script>
-</body>
-</html>
+@endsection
