@@ -7,5 +7,5 @@
 
 
 @section('content')
-    <h1>Update something</h1>
+    <h1>New post</h1>
 @endsection
