@@ -23,7 +23,7 @@
                 <button class="btn btn-primary w-100" data-toggle="collapse" data-target="#collapseExample"
                         aria-expanded="false" aria-controls="collapseExample">Shop by Category
                 </button>
-                <div class="collapse dropmenu" id="collapseExample">
+                <div class="collapse dropmenu" style="z-index: 1" id="collapseExample">
                     <div class="card card-body">
                         Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
                         Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
