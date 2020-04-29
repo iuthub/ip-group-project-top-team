@@ -37,7 +37,7 @@
     <!-- End of carousel  -->
 
     <div class="row mt-3">
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-12 col-md-12 col-sm-12 align-items-center">
             <div class="card mb-3 p-2" style="max-width: 540px;">
                 <div class="row no-gutters text-center align-items-lg-center">
                     <div class="col-md-2">
@@ -52,7 +52,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-12">
             <div class="card mb-3 p-2" style="max-width: 540px;">
                 <div class="row no-gutters text-center align-items-lg-center">
                     <div class="col-md-2">
@@ -67,7 +67,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 col-12">
             <div class="card mb-3 p-2" style="max-width: 540px;">
                 <div class="row no-gutters text-center align-items-lg-center">
                     <div class="col-md-2">
@@ -110,5 +110,35 @@
     </div>
 
     <h2 class="mt-4">Best Deals Ever</h2>
+
+    @include('sections.carousel')
+
+
+    <div class="row mt-4">
+        <div class="col-lg-8 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-03.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                    <br>
+                    <p class="card-text">For New Customer Only</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-05.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                    <br>
+                    <p class="card-text">For New Customer Only</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mt-4">Featured Products</h2>
+
+    @include('sections.carousel')
 
 @endsection
