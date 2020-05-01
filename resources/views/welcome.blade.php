@@ -7,7 +7,7 @@
 
 @section('content')
     <div class="row">
-        <div class="offset-lg-3 col-lg-9 mt-2">
+        <div class="offset-lg-3 col-lg-9 mt-4">
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -85,15 +85,13 @@
     </div>
 
     <!-- End of header section -->
-
+<!--
     <div class="row ">
         <div class="col-lg-6 mt-2">
             <div class="card bg-white border-white text-dark">
                 <img src="{{ asset('img/banners/Sub-banner-01.jpg') }}" class="card-img" alt="...">
                 <div class="card-img-overlay">
                     <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
-                    <br>
-                    <p class="card-text">For New Customer Only</p>
                 </div>
             </div>
         </div>
@@ -102,13 +100,12 @@
                 <img src="{{ asset('img/banners/Sub-banner-02.jpg') }}" class="card-img" alt="...">
                 <div class="card-img-overlay">
                     <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
-                    <br>
-                    <p class="card-text">For New Customer Only</p>
                 </div>
             </div>
         </div>
     </div>
-
+-->
+    <hr>
     <h2 class="mt-4">Best Deals Ever</h2>
 
     @include('sections.carousel')
@@ -120,8 +117,6 @@
                 <img src="{{ asset('img/banners/Sub-banner-03.jpg') }}" class="card-img" alt="...">
                 <div class="card-img-overlay">
                     <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
-                    <br>
-                    <p class="card-text">For New Customer Only</p>
                 </div>
             </div>
         </div>
@@ -130,8 +125,7 @@
                 <img src="{{ asset('img/banners/Sub-banner-05.jpg') }}" class="card-img" alt="...">
                 <div class="card-img-overlay">
                     <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
-                    <br>
-                    <p class="card-text">For New Customer Only</p>
+
                 </div>
             </div>
         </div>
@@ -140,5 +134,41 @@
     <h2 class="mt-4">Featured Products</h2>
 
     @include('sections.carousel')
+
+
+    <hr>
+    <div class="owl-carousel mt-5 mb-4 ">
+        <div><img src="{{ asset('img/brands/brand-1.png') }}"></div>
+        <div><img src="{{ asset('img/brands/brand-2.png') }}"></div>
+        <div><img src="{{ asset('img/brands/brand-3.png') }}"></div>
+        <div><img src="{{ asset('img/brands/brand-4.png') }}"></div>
+        <div><img src="{{ asset('img/brands/brand-5.png') }}"></div>
+        <div><img src="{{ asset('img/brands/brand-1.png') }}"></div>
+    </div>
+
+
+    <div class="row mt-3 mb-4">
+        <div class="col-lg-6 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-01.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-02.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- End of content   -->
+
+
 
 @endsection
