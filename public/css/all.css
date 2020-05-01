@@ -1,0 +1,36 @@
+/* Stylesheet */
+body{
+    background-image: url("../img/background.jpg");
+    background-color: #EBF0F0;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+}
+
+.container{
+    background-color: #fff;
+}
+@media (min-width: 1200px) {
+    .dropmenu{
+        position: absolute;
+        margin-top:10px;
+    }
+    .navbar-nav > li {
+        background: rgba(0, 0, 0, 0) url("../img/patterns/menu_pipe.png") no-repeat scroll left center;
+    }
+
+    .navbar-nav > li:first-child {
+        background: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .welcome{
+        display: none;
+    }
+    #navbarNavDropdown{
+        order: 1;
+    }
+}
+
+

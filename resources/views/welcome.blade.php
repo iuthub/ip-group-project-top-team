@@ -1,100 +1,144 @@
-<!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.default')
 
-        <title>Laravel</title>
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+@section('title')
+    Home
+@endsection
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
+@section('content')
+    <div class="row">
+        <div class="offset-lg-3 col-lg-9 mt-2">
+            <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ asset('img/banners/banner-01.jpg') }}" class="d-block w-100" alt="...">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ asset('img/banners/banner-01.jpg') }}" class="d-block w-100" alt="...">
+                    </div>
                 </div>
-            @endif
+                <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
+    </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+    <!-- End of carousel  -->
+
+    <div class="row mt-3">
+        <div class="col-lg-4 col-12 col-md-12 col-sm-12 align-items-center">
+            <div class="card mb-3 p-2" style="max-width: 540px;">
+                <div class="row no-gutters text-center align-items-lg-center">
+                    <div class="col-md-2">
+                        <i class="fas fa-smile text-danger h1"></i>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title">100% Satisfaction</h5>
+                            <p class="card-text">If you are unable</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-    </body>
-</html>
+        <div class="col-lg-4 col-12">
+            <div class="card mb-3 p-2" style="max-width: 540px;">
+                <div class="row no-gutters text-center align-items-lg-center">
+                    <div class="col-md-2">
+                        <i class="fas fa-heart text-danger h1"></i>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title">Save 20% when you</h5>
+                            <p class="card-text">Use credit card</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-12">
+            <div class="card mb-3 p-2" style="max-width: 540px;">
+                <div class="row no-gutters text-center align-items-lg-center">
+                    <div class="col-md-2">
+                        <i class="fas fa-dolly-flatbed text-danger h1"></i>
+                    </div>
+                    <div class="col-md-10">
+                        <div class="card-body">
+                            <h5 class="card-title">Fast Free Shipment</h5>
+                            <p class="card-text">Load any computer’s</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- End of header section -->
+
+    <div class="row ">
+        <div class="col-lg-6 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-01.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                    <br>
+                    <p class="card-text">For New Customer Only</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-02.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                    <br>
+                    <p class="card-text">For New Customer Only</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mt-4">Best Deals Ever</h2>
+
+    @include('sections.carousel')
+
+
+    <div class="row mt-4">
+        <div class="col-lg-8 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-03.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                    <br>
+                    <p class="card-text">For New Customer Only</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 mt-2">
+            <div class="card bg-white border-white text-dark">
+                <img src="{{ asset('img/banners/Sub-banner-05.jpg') }}" class="card-img" alt="...">
+                <div class="card-img-overlay">
+                    <p class="card-text h2">Google Extraodinary<br> 40% Flat</p>
+                    <br>
+                    <p class="card-text">For New Customer Only</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="mt-4">Featured Products</h2>
+
+    @include('sections.carousel')
+
+@endsection
