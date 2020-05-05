@@ -86,6 +86,54 @@
     		</ol>
     		<p>In cursus faucibus tortor eu vestibulum. Ut eget turpis ac justo porta varius. Donec vel felis ante, ac vehicula ipsum. Quisque sed diam metus. Quisque eget leo sit amet erat varius rutrum vitae dapibus lectus. Vivamus et sapien ante. Suspendisse potenti. Fusce in tellus est, ac consequat lacus. Nulla risus massa, commodo in imperdiet ut, ornare in leo. Duis pellentesque sagittis lorem, sed mollis lorem venenatis id.</p>
     	</div>
+    	<div class="add_info xs">
+    		<h5><b>Additional Information</b></h5>
+    		<table class="table">
+    			<thead>
+    				<tr>
+    					<th scope="col">Weight</th>
+    					<th scope="col">56 kg</th>
+    				</tr>
+    			</thead>
+    			<tbody>
+    				<tr>
+    					<th scope="col">Dimensions</th>
+    					<th scope="col">122 × 121 × 451 cm</th>
+    				</tr>
+    			</tbody>
+    		</table>
+    	</div>
+
+    	<div class="reviews">
+    		<h5><b>Reviews (0)</b></h5>
+    		<p>There are no reviews yet.</p>
+    		<strong>Be the first to review “quis nostrum exercitationem ullamb”</strong>
+    		<p>Your email address will not be published. Required fields are marked *</p>
+    		<div class="container p-1">  
+    			<p>Name</p>
+    		<form class="form-inline my-lg-0">
+                <input type="text" class="form-control mr-sm-2" placeholder="" aria-label="Name" size="145">
+            </form>
+    		</div>
+           <div class="container p-1">
+           	 <p>Email</p>
+    		 <form class="form-inline my-lg-0">
+                <input type="text" class="form-control mr-sm-2" placeholder="" aria-label="Email" size="145">
+            </form>
+           </div>
+           <div class="save">
+           	<label><input type="checkbox" name="save" >  Save my name, email, and website in this browser for the next time I comment.</input></label>
+           	<p>Your rating</p>
+           	<p>Your review *</p>
+           	<span class="border border-light">
+           		<textarea cols="150" rows="6"></textarea>
+           	</span>
+           	
+           	<button type="submit" class="btn btn-primary">Submit</button>   
+           </div>
+    	</div>
+
+
     </div>
 
 
