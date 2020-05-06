@@ -23,3 +23,7 @@ Auth::routes();
 Route::get('/post', function () {
     return view('post');
 });
+
+Route::get('/search', function(){
+    return view('search');
+});
