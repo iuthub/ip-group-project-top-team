@@ -20,10 +20,9 @@ class CreateGoodsTable extends Migration
             $table->integer('count');
             $table->double('price', 10, 2);
             $table->text('image');
-            $table->integer('percentage');
+            $table->smallInteger('discount');
             $table->text('description');
             $table->integer('category_id');
-            $table->integer('tag_id');
         });
     }
 
