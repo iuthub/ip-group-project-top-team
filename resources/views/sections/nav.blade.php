@@ -1,11 +1,11 @@
 
 
 <nav class="navbar navbar-expand-lg navbar-light">
-    <a class="navbar-brand" style="width: 23%;"  href="#"><img width="50%" src="{{ asset('img/logo.png') }}"></a>
+    <a class="navbar-brand" style="width: 23%;"  href="/"><img width="50%" src="{{ asset('img/logo.png') }}"></a>
     <div class="collapse navbar-collapse justify-content-center " id="navbarNavDropdown">
         <ul class="navbar-nav">
             <li class="nav-item active w-100 text-center">
-                <a class="nav-link" href="#">Home</a>
+                <a class="nav-link" href="{{ route('home') }}">Home</a>
             </li>
             <li class="nav-item text-center" >
                 <a class="nav-link" href="#">Shop</a>
@@ -28,9 +28,21 @@
                 <img height="28px" src="{{ asset("img/icons/user.svg") }}">
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <a class="dropdown-item" href="#">Something else here</a>
+                @guest
+                    <a class="dropdown-item" href="{{ url('login') }}">Login</a>
+                    <a class="dropdown-item" href="{{ url('register') }}">Authorization</a>
+                @endguest
+                @auth
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    @endauth
+
             </div>
         </li>
         <li class="nav-item">

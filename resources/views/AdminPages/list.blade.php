@@ -8,4 +8,7 @@
 
 @section('content')
 
+@include('AdminPages.table')
+
+
 @endsection
