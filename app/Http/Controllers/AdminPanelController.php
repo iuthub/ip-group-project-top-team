@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Good;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\TagRequest;
+use App\Tag;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -135,7 +137,7 @@ class AdminPanelController extends Controller
 
     public function categoryUpdate(CategoryRequest $req){
         Category::where('id', '=', $req->input('id'))->update(['name' => $req->input('title') ]);
-        return redirect(route('user-list'));
+        return redirect(route('category-list'));
     }
 
     public function categoryDelete($id){
@@ -233,4 +235,43 @@ class AdminPanelController extends Controller
     }
 
 
+    # Good section
+
+    public function goodList(){
+        $fields = ['id','title', 'count', 'price', 'discount'];
+        $categories = Good::select($fields)->paginate(15);
+        return view('AdminPages.list', [
+            'fields' => $fields,
+            'values' => $categories
+        ]);
+    }
+
+    public function goodEdit($id){
+
+    }
+
+    public function goodUpdate(CategoryRequest $req){
+
+    }
+
+    public function goodDelete($id){
+        Good::where('id', '=' , $id)->delete();
+        return redirect(route('good-list'));
+    }
+
+    public function goodNew(){
+        $categories = Category::all();
+        $tags = Tag::all();
+        return view('AdminPages.goods.create', [
+            'tags' => $tags,
+            'categories' => $categories
+        ]);
+    }
+
+    public function goodCreate(CategoryRequest $req){
+        $category = new Category();
+        $category->title = $req->input('title');
+        $category->save();
+        return redirect(route('category-list'));
+    }
 }

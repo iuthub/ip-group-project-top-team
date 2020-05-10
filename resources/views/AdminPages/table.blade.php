@@ -23,3 +23,6 @@
 </table>
 
 <a href="create/" class="btn btn-success">Create</a>
+<br>
+<br>
+{{ $values->links() }}
