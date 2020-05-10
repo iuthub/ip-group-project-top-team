@@ -33,7 +33,7 @@
                 <div class="collapse dropmenu w-100 pr-lg-4" style="z-index: 1" id="collapseExample">
                     <div class="card pt-2 pb-2 card-body w-100">
                         <ul class="w-100 pl-0 mb-0 text-center">
-                            @foreach($categories as $category)
+                            @foreach(App\Category::all() as $category)
                                 <li class="list-unstyled"><a class="dropdown-link" href="/category/{{ $category->id }}">{{ $category->title }}</a></li>
                                 <hr class="m-2">
                             @endforeach
@@ -51,7 +51,7 @@
                         <span class="input-group-prepend">
                              <select class="custom-select" name="category">
                                         <option value="-1">All categories</option>
-                                        @foreach($categories as $category)
+                                        @foreach(App\Category::all() as $category)
                                             <option value={{ $category->id }}>{{ $category->title }}</option>
                                         @endforeach
                              </select>
@@ -121,7 +121,7 @@
 
         <hr>
 
-        <div class="pb-3 "><span class="h5">Product tags: </span><span class="h6 text-muted">@foreach($tags as $tag)<a
+        <div class="pb-3 "><span class="h5">Product tags: </span><span class="h6 text-muted">@foreach(App\Tag::all() as $tag)<a
                     class="text-muted" href="/tag/{{ $tag->id }}">{{ $tag->title }}</a> / @endforeach</span></div>
 
     </footer>
