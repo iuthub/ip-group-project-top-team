@@ -281,7 +281,7 @@ class AdminPanelController extends Controller
         $name = time().'.'.$image->getClientOriginalExtension();
         $destinationPath = public_path('/img/posts');
         $image->move($destinationPath, $name);
-        $good->image = $destinationPath;
+        $good->image = $name;
         $tags = $req->input('tags');
         $good->save();
         $tags_db = Tag::find($tags);

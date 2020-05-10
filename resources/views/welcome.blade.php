@@ -108,7 +108,7 @@
     <hr>
     <h2 class="mt-4">Best Deals Ever</h2>
 
-    @include('sections.carousel')
+    @include('sections.carousel', ['data' => $discounts])
 
 
     <div class="row mt-4">
@@ -133,7 +133,7 @@
 
     <h2 class="mt-4">Featured Products</h2>
 
-    @include('sections.carousel')
+    @include('sections.carousel', ['data' => $newest])
 
 
     <hr>
@@ -168,7 +168,6 @@
 
 
     <!-- End of content   -->
-
 
 
 @endsection

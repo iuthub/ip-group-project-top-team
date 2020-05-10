@@ -33,4 +33,8 @@ body{
     }
 }
 
+.owl-carousel img:hover{
+    opacity: 0.6!important;
+}
+
 
