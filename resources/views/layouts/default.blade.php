@@ -33,41 +33,41 @@
                 <div class="collapse dropmenu w-100 pr-lg-4" style="z-index: 1" id="collapseExample">
                     <div class="card pt-2 pb-2 card-body w-100">
                         <ul class="w-100 pl-0 mb-0 text-center">
-                            <li class="list-unstyled"><a class="dropdown-link"  href="#">Lorem</a></li>
-                            <hr class="m-2">
-                            <li class="list-unstyled"><a class="dropdown-link" href="#">Ipsum</a></li>
-                            <hr class="m-2">
-                            <li class="list-unstyled"><a class="dropdown-link"  href="#">Doil</a></li>
+                            @foreach($categories as $category)
+                                <li class="list-unstyled"><a class="dropdown-link" href="/category/{{ $category->id }}">{{ $category->title }}</a></li>
+                                <hr class="m-2">
+                            @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7 mt-2 mt-lg-0">
-                <form>
+                <form action="/search/">
                     <div class="row">
                         <div class="input-group col-lg-9 col-12">
                             <div class="input-group-prepend">
                         <span class="input-group-prepend">
-                             <select class="custom-select">
-                                        <option selected>All categories</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                             <select class="custom-select" name="category">
+                                        <option value="-1">All categories</option>
+                                        @foreach($categories as $category)
+                                            <option value={{ $category->id }}>{{ $category->title }}</option>
+                                        @endforeach
                              </select>
                         </span>
                             </div>
                             <input type="text" class="form-control"
-                                   aria-describedby="inputGroupPrepend" required placeholder="Search Products. . .">
+                                   aria-describedby="inputGroupPrepend" name="title" required placeholder="Search Products. . .">
                         </div>
                         <div class="col-lg-3 col-12 mt-2 mt-lg-0">
-                            <div class="btn btn-outline-primary w-100">Search</div>
+                            <button type="submit" class="btn btn-outline-primary w-100">Search</button>
                         </div>
                     </div>
                 </form>
             </div>
 
             <div class="col-lg-2 mt-2 mt-lg-0 welcome">
-                <div><img width="30px" src="{{ asset('img/icons/hi.svg') }}"><span class="">@guest Welcome Guest! @endguest @auth Hi, {{ Auth::user()->name }}  @endauth</span></div>
+                <div><img width="30px" src="{{ asset('img/icons/hi.svg') }}"><span class="">@guest Welcome
+                        Guest! @endguest @auth Hi, {{ Auth::user()->name }}  @endauth</span></div>
             </div>
         </div>
     </header>
@@ -119,7 +119,8 @@
 
         <hr>
 
-        <div class="pb-3 "><span class="h5">Product tags: </span><span class="h6 text-muted"><a class="text-muted" href="#">Audire</a> / <a class="text-muted" href="#">Lorem</a> / <a class="text-muted" href="#">Ipsum</a></span></div>
+        <div class="pb-3 "><span class="h5">Product tags: </span><span class="h6 text-muted">@foreach($tags as $tag)<a
+                    class="text-muted" href="#">{{ $tag->title }}</a> / @endforeach</span></div>
 
     </footer>
 </div>
@@ -137,27 +138,26 @@
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 
 
-
 <script>
-    $(document).ready(function(){
+    $(document).ready(function () {
         $('.owl-carousel').owlCarousel({
-            loop:true,
-            lazyLoad:true,
-            margin:10,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:2,
-                    nav:true
+            loop: true,
+            lazyLoad: true,
+            margin: 10,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 2,
+                    nav: true
                 },
-                600:{
-                    items:3,
-                    nav:false
+                600: {
+                    items: 3,
+                    nav: false
                 },
-                1000:{
-                    items:5,
-                    nav:true,
-                    loop:false
+                1000: {
+                    items: 5,
+                    nav: true,
+                    loop: false
                 }
             }
         })

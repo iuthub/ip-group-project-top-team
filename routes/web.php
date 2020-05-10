@@ -13,15 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+# User interface routes
+
 Auth::routes();
 
 Route::get('/', 'ViewController@index')->name('home');
 Route::get('/post/{id}', 'ViewController@post')->name('post');
+Route::get('/search/', 'ViewController@search')->name('search');
 
-
-Route::get('/search', function(){
-    return view('search');
-});
 
 
 # Admin Panel Routes
