@@ -20,6 +20,9 @@ Auth::routes();
 Route::get('/', 'ViewController@index')->name('home');
 Route::get('/post/{id}', 'ViewController@post')->name('post');
 Route::get('/search/', 'ViewController@search')->name('search');
+Route::get('/category/{id}', 'ViewController@category')->name('category');
+Route::get('/tag/{id}', 'ViewController@tag')->name('tag');
+Route::post('/comments/', 'ViewController@comment')->name('comment');
 
 
 

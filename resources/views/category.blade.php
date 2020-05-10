@@ -10,12 +10,9 @@
 
 
     <div class="container p-4">
-        <p class="result">
-            There are {{ $posts->count() }} results
-        </p>
         <div class="row">
             @foreach($posts as $post)
-                <div class="col-xs-4 col-sm-4 col-lg-3 col-6 carousel-img mb-3">
+                <div class="col-xs-4 col-sm-4 col-lg-3 col-6 carousel-img mb-2">
                     <a href="/post/{{ $post->id }}"><img src="/img/posts/{{ $post->image }}" alt="" class="w-100"></a>
                     <div class="p-1">
                         <span>{{ $post->title }}</span>

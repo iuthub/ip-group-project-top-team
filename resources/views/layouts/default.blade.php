@@ -37,6 +37,8 @@
                                 <li class="list-unstyled"><a class="dropdown-link" href="/category/{{ $category->id }}">{{ $category->title }}</a></li>
                                 <hr class="m-2">
                             @endforeach
+                                <li class="list-unstyled"><a class="dropdown-link" href="/category/-1">All Categories</a></li>
+                                <hr class="m-2">
                         </ul>
                     </div>
                 </div>
@@ -120,7 +122,7 @@
         <hr>
 
         <div class="pb-3 "><span class="h5">Product tags: </span><span class="h6 text-muted">@foreach($tags as $tag)<a
-                    class="text-muted" href="#">{{ $tag->title }}</a> / @endforeach</span></div>
+                    class="text-muted" href="/tag/{{ $tag->id }}">{{ $tag->title }}</a> / @endforeach</span></div>
 
     </footer>
 </div>

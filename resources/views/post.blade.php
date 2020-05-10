@@ -39,10 +39,13 @@
                     </div>
                     <div class="char p-4">
                         <p class="categ">
-                            Category: <a href="#">{{ $post->category->title }}</a>
+                            Category: <a href="/category/{{ $post->category_id }}">{{ $post->category->title }}</a>
+                        </p>
+                        <p>
+                            Count: {{ $post->count }}
                         </p>
                         <p class="tag">
-                            Tags: @foreach($post->tags as $tag) <a href="#"> {{$tag->title}} </a> @endforeach
+                            Tags: @foreach($post->tags as $tag) <a href="/tag/{{ $tag->id }}"> {{$tag->title}} </a> @endforeach
                         </p>
                     </div>
                 </div>
@@ -56,7 +59,7 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link" id="reviews-tab" data-toggle="tab" href="#reviews" role="tab"
-                   aria-controls="reviews" aria-selected="false">Review</a>
+                   aria-controls="reviews" aria-selected="false">Review({{ $comments->count() }})</a>
             </li>
         </ul>
 
@@ -68,16 +71,41 @@
             </div>
             <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
                 <div class="reviews">
-                    <h5><b>Reviews (0)</b></h5>
-                    <p>There are no reviews yet.</p>
+                    <h5><b>Reviews ({{ $comments->count() }})</b></h5>
+                    @if($comments->count() == 0)
+                        <p>There are no reviews yet.</p>
+                    @else
+                        @foreach($comments as $comment)
+                        <div class="row">
+                            <div class="col-3"><img src="/img/user.png"><br>{{ dd($comment->user()->id) }}</div>
+                            <div class="col-9">
+
+                            </div>
+                        </div>
+                        @endforeach
+                    @endif
+                    @if ($errors->any())
+                        <div class="alert alert-danger">
+                            <ul>
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    <form action="/comments/" method="post">
+                        @csrf
                     <div class="container p-1">
+                        <input type="hidden" name="good_id" value="{{ $post->id }}">
+                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <p>Your review *</p>
                         <span class="border border-light">
-           		            <textarea class="form-control" rows="6"></textarea>
+           		            <textarea name="content" class="form-control" rows="6"></textarea>
            	            </span>
 
                         <button type="submit" class="btn btn-danger mt-1">Submit</button>
                     </div>
+                    </form>
                 </div>
             </div>
         </div>
