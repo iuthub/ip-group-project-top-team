@@ -5,12 +5,12 @@ namespace Tests\Unit;
 use Tests\TestCase;
 use Illuminate\Support\Facades\Route;
 
-class SearchTest extends TestCase
+class AdminTest extends TestCase
 {
 
-// Base test for initial route
+// Test for admin route
   public function testBaseRoute() {
-     $response = $this->get('/search');
+     $response = $this->get('/admin');
      $response->assertStatus(200);
  }
 }
