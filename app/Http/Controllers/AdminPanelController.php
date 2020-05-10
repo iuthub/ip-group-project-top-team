@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Http\Requests\CategoryRequest;
 use App\Http\Requests\UserRequest;
+use App\Http\Requests\TagRequest;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -166,5 +167,70 @@ class AdminPanelController extends Controller
         $category->save();
         return redirect(route('category-list'));
     }
+
+    # Tag Section
+    public function tagList(){
+        $fields = ['id','title'];
+        $tags = Tag::select($fields)->paginate(15);
+        return view('AdminPages.list', [
+            'fields' => $fields,
+            'values' => $tags
+        ]);
+    }
+
+    public function tagEdit($id){
+        $fields = ['id','title'];
+        $tag = Tag::select($fields)->where('id', '=', $id)->first();
+        $fields = [
+            'id' => [
+                'type' => 'number',
+                'value' => $tag['id'],
+            ],
+            'name' => [
+                'type' => 'text',
+                'value' => $tag['title']
+            ]
+        ];
+        return view('AdminPages.action', [
+            'fields'=>$fields,
+            'action'=>'update'
+        ]);
+    }
+
+    public function tagUpdate(TagRequest $req){
+        Tag::where('id', '=', $req->input('id'))->update(['name' => $req->input('title') ]);
+        return redirect(route('user-list'));
+    }
+
+    public function tagDelete($id){
+        Tag::where('id', '=' , $id)->delete();
+        return redirect(route('tag-list'));
+    }
+
+    public function tagNew(){
+        $fields = ['id','title'];
+        $fields = [
+            'id' => [
+                'type' => 'number',
+                'value' => '',
+            ],
+            'title' => [
+                'type' => 'text',
+                'value' => ''
+            ]
+        ];
+        return view('AdminPages.action', [
+            'fields'=>$fields,
+            'action'=>'create'
+        ]);
+    }
+
+    public function tagCreate(TagRequest $req){
+        $tag = new Tag();
+        $tag->title = $req->input('title');
+        $tag->save();
+        return redirect(route('tag-list'));
+    }
+
 
 }

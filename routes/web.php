@@ -49,4 +49,12 @@ Route::get('/admin/category/delete/{id}', 'AdminPanelController@categoryDelete')
 Route::get('/admin/category/create/', 'AdminPanelController@categoryNew');
 Route::post('/admin/category/create/create', 'AdminPanelController@categoryCreate');
 
+# Tags section
+Route::get('/admin/tag/list/', 'AdminPanelController@tagList')->name('tag-list');
+Route::get('/admin/tag/update/{id}/', 'AdminPanelController@tagEdit');
+Route::post('/admin/tag/update/update', 'AdminPanelController@tagUpdate')->name('tag-update');
+Route::get('/admin/tag/delete/{id}', 'AdminPanelController@tagDelete');
+Route::get('/admin/tag/create/', 'AdminPanelController@tagNew');
+Route::post('/admin/tag/create/create', 'AdminPanelController@tagCreate');
+
 # End Admin Panel Routes

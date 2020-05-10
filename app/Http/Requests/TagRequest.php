@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UserRequest extends FormRequest
+class TagRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,9 @@ class UserRequest extends FormRequest
      */
     public function authorize()
     {
-        return  true;
+        if(auth()->user()->isAdmin)
+            return true;
+        return false;
     }
 
     /**
@@ -24,9 +26,7 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required|min:5',
-            'email' => 'required|email:rfc',
-            'isAdmin' => 'required|numeric|min:0|max:1'
+            'title' => 'required|min:3',
         ];
     }
 }
