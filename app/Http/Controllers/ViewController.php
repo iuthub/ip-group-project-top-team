@@ -21,4 +21,13 @@ class ViewController extends Controller
             'newest' => $newest
         ]);
     }
+
+    public function post($id){
+        $post = Good::where('id', '=' , $id)->first();
+        $related = Good::where([['category_id', '=', $post->category_id], ['id', '!=', $id]])->take(6)->get();
+        return view('post', [
+            'post' => $post,
+            'related' => $related
+        ]);
+    }
 }

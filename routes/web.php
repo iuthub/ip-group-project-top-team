@@ -16,11 +16,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 Route::get('/', 'ViewController@index')->name('home');
+Route::get('/post/{id}', 'ViewController@post')->name('post');
 
-
-Route::get('/post', function () {
-    return view('post');
-});
 
 Route::get('/search', function(){
     return view('search');
