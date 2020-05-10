@@ -1,63 +1,25 @@
 <div class="owl-carousel">
-    <div> <img src="{{ asset('img/catalog/14.jpg') }}">
-        <div class="p-1">
-            <span>Lorem ipsum dolor sit amet, consectetur.</span>
-            <br><span class="h6">$100.00</span>
-            <div class="mt-1"><button class="btn btn-outline-danger">Add to cart</button></div>
+    @foreach($data as $info)
+        <div class="carousel-img"><a href="/post/{{ $info->id }}"><img src="/img/posts/{{ $info->image }}"></a>
+            <div class="p-1">
+                <span>{{ $info->title }}</span>
+                <br>
+                @if($info->discount == 0)
+                    <span class="h4 ">${{ $info->price }}</span>
+                @else
+                    <span class="h4 ">${{ $info->price*(100 -$info->discount) / 100 }} </span> <span
+                        class="h6 text-muted ml-1"><del>${{ $info->price }}</del></span>
+                @endif
+                <form action="/korzina" method="post">
+                    @csrf
+                    <div class="mt-1"><a href="#">
+                            <input hidden value="{{ $info->id }}" name="good_id">
+                            <input hidden value="1" name="count">
+                            <button type="submit" class="btn btn-outline-danger">Add to cart</button>
+                        </a></div>
+                </form>
+            </div>
         </div>
-    </div>
-    <div> <img src="{{ asset('img/catalog/15.jpg') }}">
-        <div class="p-1">
-            <span>Lorem ipsum dolor sit amet, consectetur.</span>
-            <br><span class="h6">$100.00</span>
-            <div class="mt-1"><button class="btn btn-outline-danger">Add to cart</button></div>
-        </div>
-    </div>
-    <div> <img src="{{ asset('img/catalog/16.jpg') }}">
-        <div class="p-1">
-            <span>Lorem ipsum dolor sit amet, consectetur.</span>
-            <br><span class="h6">$100.00</span>
-            <div class="mt-1"><button class="btn btn-outline-danger">Add to cart</button></div>
-        </div>
-    </div>
-    <div> <img src="{{ asset('img/catalog/17.jpg') }}">
-        <div class="p-1">
-            <span>Lorem ipsum dolor sit amet, consectetur.</span>
-            <br><span class="h6">$100.00</span>
-            <div class="mt-1"><button class="btn btn-outline-danger">Add to cart</button></div>
-        </div>
-    </div>
-    <div> <img src="{{ asset('img/catalog/18.jpg') }}">
-        <div class="p-1">
-            <span>Lorem ipsum dolor sit amet, consectetur.</span>
-            <br><span class="h6">$100.00</span>
-            <div class="mt-1"><button class="btn btn-outline-danger">Add to cart</button></div>
-        </div>
-    </div>
+    @endforeach
 </div>
 
-
-<script>
-    $(document).ready(function(){
-        $('.owl-carousel').owlCarousel({
-            loop:true,
-            margin:10,
-            responsiveClass:true,
-            responsive:{
-                0:{
-                    items:2,
-                    nav:true
-                },
-                600:{
-                    items:3,
-                    nav:false
-                },
-                1000:{
-                    items:5,
-                    nav:true,
-                    loop:false
-                }
-            }
-        })
-    });
-</script>

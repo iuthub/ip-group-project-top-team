@@ -13,7 +13,7 @@ body{
 @media (min-width: 1200px) {
     .dropmenu{
         position: absolute;
-        margin-top:10px;
+        margin-top:25px;
     }
     .navbar-nav > li {
         background: rgba(0, 0, 0, 0) url("../img/patterns/menu_pipe.png") no-repeat scroll left center;
@@ -31,6 +31,10 @@ body{
     #navbarNavDropdown{
         order: 1;
     }
+}
+
+.carousel-img img:hover{
+    opacity: 0.6!important;
 }
 
 

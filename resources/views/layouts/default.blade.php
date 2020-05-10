@@ -22,7 +22,7 @@
 </head>
 <body>
 
-<div class="container mt-4">
+<div class="container mt-4 mb-4">
     <header>
         @include('sections.nav')
         <div class="row mt-4 justify-content-lg-center">
@@ -30,40 +30,46 @@
                 <button class="btn btn-primary w-100" data-toggle="collapse" data-target="#collapseExample"
                         aria-expanded="false" aria-controls="collapseExample">Shop by Category
                 </button>
-                <div class="collapse dropmenu" style="z-index: 1" id="collapseExample">
-                    <div class="card card-body">
-                        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                        Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea
-                        proident.
+                <div class="collapse dropmenu w-100 pr-lg-4" style="z-index: 1" id="collapseExample">
+                    <div class="card pt-2 pb-2 card-body w-100">
+                        <ul class="w-100 pl-0 mb-0 text-center">
+                            @foreach(App\Category::all() as $category)
+                                <li class="list-unstyled"><a class="dropdown-link" href="/category/{{ $category->id }}">{{ $category->title }}</a></li>
+                                <hr class="m-2">
+                            @endforeach
+                                <li class="list-unstyled"><a class="dropdown-link" href="/category/-1">All Categories</a></li>
+                                <hr class="m-2">
+                        </ul>
                     </div>
                 </div>
             </div>
             <div class="col-lg-7 mt-2 mt-lg-0">
-                <form>
+                <form action="/search/">
                     <div class="row">
                         <div class="input-group col-lg-9 col-12">
                             <div class="input-group-prepend">
                         <span class="input-group-prepend">
-                             <select class="custom-select">
-                                        <option selected>All categories</option>
-                                        <option value="1">One</option>
-                                        <option value="2">Two</option>
-                                        <option value="3">Three</option>
+                             <select class="custom-select" name="category">
+                                        <option value="-1">All categories</option>
+                                        @foreach(App\Category::all() as $category)
+                                            <option value={{ $category->id }}>{{ $category->title }}</option>
+                                        @endforeach
                              </select>
                         </span>
                             </div>
                             <input type="text" class="form-control"
-                                   aria-describedby="inputGroupPrepend" required placeholder="Search Products. . .">
+                                   aria-describedby="inputGroupPrepend" name="title" required placeholder="Search Products. . .">
                         </div>
                         <div class="col-lg-3 col-12 mt-2 mt-lg-0">
-                            <div class="btn btn-outline-primary w-100">Search</div>
+                            <button type="submit" class="btn btn-outline-primary w-100">Search</button>
                         </div>
                     </div>
                 </form>
             </div>
 
             <div class="col-lg-2 mt-2 mt-lg-0 welcome">
-                <div><img width="30px" src="{{ asset('img/icons/hi.svg') }}"> Welcome Guest!</div>
+                <div><img width="30px" src="{{ asset('img/icons/hi.svg') }}"><span class="">@guest Welcome
+                        Guest! @endguest @auth Hi, {{ Auth::user()->name }}  @endauth</span></div>
             </div>
         </div>
     </header>
@@ -74,7 +80,7 @@
     </div>
 
 
-    <footer>
+    <footer class="mb-5">
         <div class="row bg-danger mt-2">
             <div class="col"><img src="{{ asset("img/logo.png") }}"></div>
             <div class="col"></div>
@@ -83,7 +89,7 @@
 
         <div class="row mt-5 p-2">
             <div class="col-lg-3 col-sm-6 col-6"><h5>Get to Know Us</h5>
-                <ul class="">
+                <ul class="list-unstyled">
                     <li>Lorem ipsum.</li>
                     <li>Lorem ipsum.</li>
                     <li>Lorem ipsum dolor.</li>
@@ -91,27 +97,32 @@
 
             </div>
             <div class="col-lg-3 col-sm-6 col-6"><h5>Connect With US</h5>
-                <ul class="">
+                <ul class="list-unstyled">
                     <li>Lorem ipsum.</li>
                     <li>Lorem ipsum.</li>
                     <li>Lorem ipsum dolor.</li>
                 </ul>
             </div>
             <div class="col-lg-3 col-sm-6 col-6"><h5>Earning with Us</h5>
-                <ul class="">
+                <ul class="list-unstyled">
                     <li>Lorem ipsum.</li>
                     <li>Lorem ipsum.</li>
                     <li>Lorem ipsum dolor.</li>
                 </ul>
             </div>
             <div class="col-lg-3 col-sm-6 col-6"><h5>Let Us Help You</h5>
-                <ul class="">
+                <ul class="list-unstyled">
                     <li>Lorem ipsum.</li>
                     <li>Lorem ipsum.</li>
                     <li>Lorem ipsum dolor.</li>
                 </ul>
             </div>
         </div>
+
+        <hr>
+
+        <div class="pb-3 "><span class="h5">Product tags: </span><span class="h6 text-muted">@foreach(App\Tag::all() as $tag)<a
+                    class="text-muted" href="/tag/{{ $tag->id }}">{{ $tag->title }}</a> / @endforeach</span></div>
 
     </footer>
 </div>
@@ -127,5 +138,34 @@
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+
+
+<script>
+    $(document).ready(function () {
+        $('.owl-carousel').owlCarousel({
+            loop: true,
+            lazyLoad: true,
+            margin: 10,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 2,
+                    nav: true
+                },
+                600: {
+                    items: 3,
+                    nav: false
+                },
+                1000: {
+                    items: 5,
+                    nav: true,
+                    loop: false
+                }
+            }
+        })
+    });
+</script>
+
+
 </body>
 </html>
