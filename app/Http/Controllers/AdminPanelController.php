@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use App\Good;
 use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\GoodRequest;
 use App\Http\Requests\UserRequest;
 use App\Http\Requests\TagRequest;
 use App\Tag;
@@ -201,7 +202,7 @@ class AdminPanelController extends Controller
 
     public function tagUpdate(TagRequest $req){
         Tag::where('id', '=', $req->input('id'))->update(['name' => $req->input('title') ]);
-        return redirect(route('user-list'));
+        return redirect(route('tag-list'));
     }
 
     public function tagDelete($id){
@@ -268,10 +269,24 @@ class AdminPanelController extends Controller
         ]);
     }
 
-    public function goodCreate(CategoryRequest $req){
-        $category = new Category();
-        $category->title = $req->input('title');
-        $category->save();
-        return redirect(route('category-list'));
+    public function goodCreate(GoodRequest $req){
+        $good = new Good();
+        $good->title = $req->input('title');
+        $good->count = $req->input('count');
+        $good->price = $req->input('price');
+        $good->discount = $req->input('discount');
+        $good->description = $req->input('description');
+        $good->category_id = $req->input('category');
+        $image = $req->file('image');
+        $name = time().'.'.$image->getClientOriginalExtension();
+        $destinationPath = public_path('/img/posts');
+        $image->move($destinationPath, $name);
+        $good->image = $destinationPath;
+        $tags = $req->input('tags');
+        $good->save();
+        $tags_db = Tag::find($tags);
+        $good->tags()->attach($tags_db);
+        $good->save();
+        return redirect(route('good-list'));
     }
 }

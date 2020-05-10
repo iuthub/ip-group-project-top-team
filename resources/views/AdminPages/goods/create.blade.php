@@ -9,12 +9,21 @@
 @section('content')
 
     <h2>Create Goods!</h2>
-
-    <form method="post" action="post">
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    <form method="post" action="create" enctype="multipart/form-data">
         @csrf
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp">
+            <input type="text" class="form-control" name="title" id="title"
+                   aria-describedby="titleHelp">
         </div>
 
         <div class="form-group">
@@ -42,8 +51,7 @@
 
         <div class="form-group">
             <label for="description">Description</label>
-            <input type="text" class="form-control" name="description" id="description"
-                   aria-describedby="descriptionHelp">
+            <textarea id="description" name="description" class="form-control" rows="4"></textarea>
         </div>
 
         <div class="form-group">
@@ -58,7 +66,7 @@
 
         <div class="form-group">
             <label for="tags">Tags</label>
-            <select class="form-control" multiple name="tags" id="tags">
+            <select class="form-control" multiple name="tags[]" id="tags">
                 @foreach($tags as $tag)
                     <option value="{{ $tag->id }}">{{ $tag->title }}</option>
                 @endforeach

@@ -47,13 +47,13 @@
 <div class="row mt-2">
     <div class="sidebar col-lg-3 col-md-3 col-12">
         <ul class="list-group ml-0 ml-lg-1">
-            <a href="#" class="card-link" style="margin-left: 1.25rem;">
+            <a href="{{ route('good-list') }}" class="card-link" style="margin-left: 1.25rem;">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Posts
                     <span class="badge badge-primary badge-pill">14</span>
                 </li>
             </a>
-            <a href="#" class="card-link">
+            <a href="{{ route('tag-list') }}" class="card-link">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     Tags
                     <span class="badge badge-primary badge-pill">2</span>

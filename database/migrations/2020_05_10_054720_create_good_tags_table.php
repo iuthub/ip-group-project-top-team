@@ -13,9 +13,9 @@ class CreateGoodTagsTable extends Migration
      */
     public function up()
     {
-        Schema::create('good_tags', function (Blueprint $table) {
-            $table->integer('good_id')->unsigned();
-            $table->integer('tag_id')->unsigned();
+        Schema::create('good_tag', function (Blueprint $table) {
+            $table->bigInteger('good_id')->unsigned();
+            $table->bigInteger('tag_id')->unsigned();
 
             $table->foreign('good_id')->references('id')->on('goods')
                 ->onDelete('cascade');
@@ -31,6 +31,6 @@ class CreateGoodTagsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('good_tags');
+        Schema::dropIfExists('good_tag');
     }
 }
