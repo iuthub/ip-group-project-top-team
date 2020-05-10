@@ -32,9 +32,11 @@
                         </p>
                     </div>
                     <div class="container">
-                        <form class="form-inline">
-                                <input type="number" class="form-control m-2" step="1" min="1" name="quantity" value="1">
-                                <a href="#" class="btn btn-danger ml-2">Add to cart</a>
+                        <form class="form-inline" action="/korzina/" method="post">
+                            @csrf
+                                <input type="hidden" value="{{ $post->id }}" name="good_id">
+                                <input type="number" name="count" class="form-control m-2" step="1" min="1" max="{{ $post->count }}" value="1">
+                                <button type="submit" class="btn btn-danger ml-2">Add to cart</button>
                         </form>
                     </div>
                     <div class="char p-4">
@@ -76,12 +78,13 @@
                         <p>There are no reviews yet.</p>
                     @else
                         @foreach($comments as $comment)
-                        <div class="row">
-                            <div class="col-3"><img src="/img/user.png"><br>{{ dd($comment->user()->id) }}</div>
-                            <div class="col-9">
-
+                        <div class="row mb-2 h-50">
+                            <div class="col-2 text-center"><img src="/img/user.png"><br><span class="text-danger">{{ $comment->user()->first()->name }}</span></div>
+                            <div class="col-10">
+                                <div style="height: 125px;" class="border-info border p-2">{{ $comment->content }}</div>
                             </div>
                         </div>
+                            <hr>
                         @endforeach
                     @endif
                     @if ($errors->any())
@@ -93,11 +96,10 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="/comments/" method="post">
+                    @auth
+                    <form action="/post/{{$post->id}}/comments/" method="post">
                         @csrf
                     <div class="container p-1">
-                        <input type="hidden" name="good_id" value="{{ $post->id }}">
-                        <input type="hidden" name="user_id" value="{{ Auth::user()->id }}">
                         <p>Your review *</p>
                         <span class="border border-light">
            		            <textarea name="content" class="form-control" rows="6"></textarea>
@@ -106,6 +108,9 @@
                         <button type="submit" class="btn btn-danger mt-1">Submit</button>
                     </div>
                     </form>
+                    @else
+                        <h2>You need to be authorized, to add comments!</h2>
+                    @endauth
                 </div>
             </div>
         </div>

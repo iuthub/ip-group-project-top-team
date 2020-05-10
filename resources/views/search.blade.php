@@ -25,9 +25,14 @@
                         @else
                             <span class="h4 ">${{ $post->price*(100 -$post->discount) / 100 }} </span> <span class="h6 text-muted ml-1"><del>${{ $post->price }}</del></span>
                         @endif
-                        <div class="mt-1">
-                            <button class="btn btn-outline-danger">Add to cart</button>
-                        </div>
+                        <form action="/korzina/" method="post">
+                            @csrf
+                            <div class="mt-1"><a href="#">
+                                    <input hidden value="{{ $post->id }}" name="good_id">
+                                    <input hidden value="1" name="count">
+                                    <button type="submit" class="btn btn-outline-danger">Add to cart</button>
+                                </a></div>
+                        </form>
                     </div>
                 </div>
             @endforeach
